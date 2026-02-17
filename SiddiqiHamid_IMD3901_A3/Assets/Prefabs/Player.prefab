@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
-  speed: 10
+  speed: 18
   mouseSensitivity: 100
   controller: {fileID: 484695674978267704}
   cameraTransform: {fileID: 2128501719586847186}
