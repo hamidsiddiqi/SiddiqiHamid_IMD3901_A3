@@ -72,5 +72,25 @@ public class PlayerController : NetworkBehaviour
         transform.Rotate(Vector3.up * mouseX);
 
 
+
+        //if (IsOwner && Mouse.current.leftButton.wasPressedThisFrame)
+        //{
+        //    // 1. Define the ray starting from the center of the player's camera
+        //    Ray ray = playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        //    RaycastHit hit;
+
+        //    // 2. Check if the ray hits an object within 3 meters
+        //    if (Physics.Raycast(ray, out hit, 3f))
+        //    {
+        //        // 3. Try to find the TaskButton script on the object we hit
+        //        if (hit.collider.TryGetComponent(out TaskButton button))
+        //        {
+        //            // 4. Trigger the interaction (Visual/Aural feedback)
+        //            button.InteractServerRpc();
+        //        }
+        //    }
+        //}
+
+
     }
 }
