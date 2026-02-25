@@ -1379,6 +1379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressedColor: {r: 0, g: 1, b: 0, a: 1}
+  clickSound: {fileID: 0}
 --- !u!1 &562458795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,6 +1718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressedColor: {r: 0, g: 1, b: 0, a: 1}
+  clickSound: {fileID: 0}
 --- !u!1 &730129471
 GameObject:
   m_ObjectHideFlags: 0
@@ -2864,6 +2866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressedColor: {r: 0, g: 1, b: 0, a: 1}
+  clickSound: {fileID: 0}
 --- !u!65 &1117342389
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3922,6 +3925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressedColor: {r: 0, g: 1, b: 0, a: 1}
+  clickSound: {fileID: 0}
 --- !u!1 &1722523542
 GameObject:
   m_ObjectHideFlags: 0
@@ -4152,6 +4156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressedColor: {r: 0, g: 1, b: 0, a: 1}
+  clickSound: {fileID: 0}
 --- !u!1 &1848251451
 GameObject:
   m_ObjectHideFlags: 0
@@ -4200,6 +4205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressedColor: {r: 0, g: 1, b: 0, a: 1}
+  clickSound: {fileID: 0}
 --- !u!65 &1848251454
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4322,6 +4328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressedColor: {r: 0, g: 1, b: 0, a: 1}
+  clickSound: {fileID: 0}
 --- !u!65 &1878008333
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4444,6 +4451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressedColor: {r: 0, g: 1, b: 0, a: 1}
+  clickSound: {fileID: 8300000, guid: 2134d631fb90ca84ea30a73183729891, type: 3}
 --- !u!65 &1898414092
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4640,6 +4648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressedColor: {r: 0, g: 1, b: 0, a: 1}
+  clickSound: {fileID: 0}
 --- !u!1 &1983793275
 GameObject:
   m_ObjectHideFlags: 0
