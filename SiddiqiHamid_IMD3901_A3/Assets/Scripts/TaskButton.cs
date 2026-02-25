@@ -6,9 +6,19 @@ public class TaskButton : MonoBehaviour
     private MeshRenderer meshRenderer;
     private bool isPressed = false;
 
+    [Header("Audio Settings")]
+    public AudioClip clickSound;
+    private AudioSource audioSource;
+
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
+
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 1.0f;
     }
 
     public void Interact()
@@ -16,7 +26,13 @@ public class TaskButton : MonoBehaviour
         if (!isPressed)
         {
             isPressed = true;
-            meshRenderer.material.color = pressedColor; 
+            meshRenderer.material.color = pressedColor;
+
+            if (clickSound != null)
+            {
+                audioSource.PlayOneShot(clickSound);
+            }
+
             Debug.Log(gameObject.name + " Pressed!");
 
             // This is where you'll eventually trigger the "Win" logic
