@@ -5,41 +5,37 @@ public class GameManager : NetworkBehaviour
 {
     public static GameManager Instance;
 
-    public NetworkVariable<float> timer = new NetworkVariable<float>(60f); // 60 second limit
+    // Track scores and timer across the network
     public NetworkVariable<int> p1Score = new NetworkVariable<int>(0);
     public NetworkVariable<int> p2Score = new NetworkVariable<int>(0);
-    public NetworkVariable<int> totalPressed = new NetworkVariable<int>(0);
+    public NetworkVariable<float> timer = new NetworkVariable<float>(60f);
 
-    public int totalButtonsInRoom = 20;
-
-    void Awake() { Instance = this; }
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Update()
     {
-        if (IsServer && timer.Value > 0 && totalPressed.Value < totalButtonsInRoom)
+        // Only the server should manage the timer
+        if (IsServer && timer.Value > 0)
         {
             timer.Value -= Time.deltaTime;
         }
     }
 
     [ServerRpc(RequireOwnership = false)]
-    public void ButtonPressedServerRpc(ulong clientId)
+    public void RegisterButtonPressServerRpc(string buttonTag)
     {
-        totalPressed.Value++;
-        if (clientId == 0) p1Score.Value++; // Host/P1
-        else p2Score.Value++; // Client/P2
-
-        if (totalPressed.Value >= totalButtonsInRoom)
+        if (buttonTag == "Player 1 Buttons")
         {
-            Debug.Log("Collaboration Successful! Room Cleared.");
-            DetermineWinner();
+            p1Score.Value++;
         }
-    }
+        else if (buttonTag == "Player 2 Buttons")
+        {
+            p2Score.Value++;
+        }
 
-    void DetermineWinner()
-    {
-        if (p1Score.Value > p2Score.Value) Debug.Log("Player 1 wins the scramble!");
-        else if (p2Score.Value > p1Score.Value) Debug.Log("Player 2 wins the scramble!");
-        else Debug.Log("It's a tie!");
+        Debug.Log($"Score - P1: {p1Score.Value} | P2: {p2Score.Value}");
     }
 }
