@@ -49,7 +49,8 @@ public class TaskButton : MonoBehaviour
             if (clickSound != null) audioSource.PlayOneShot(clickSound);
 
             // Tell the GameManager a task with this tag is done
-            GameManager.Instance.TaskCompletedServerRpc(gameObject.tag, NetworkManager.Singleton.LocalClientId);
+            //GameManager.Instance.TaskCompletedServerRpc(gameObject.tag, NetworkManager.Singleton.LocalClientId);\
+            GameManager.Instance.TaskCompletedServerRpc(gameObject.tag);
         }
     }
 }
