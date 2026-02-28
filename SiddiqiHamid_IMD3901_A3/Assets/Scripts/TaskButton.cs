@@ -1,3 +1,4 @@
+using Unity.Netcode;
 using UnityEngine;
 
 public class TaskButton : MonoBehaviour
@@ -21,21 +22,34 @@ public class TaskButton : MonoBehaviour
         audioSource.spatialBlend = 1.0f;
     }
 
+    //public void Interact()
+    //{
+    //    if (!isPressed)
+    //    {
+    //        isPressed = true;
+    //        meshRenderer.material.color = pressedColor;
+
+    //        if (clickSound != null)
+    //        {
+    //            audioSource.PlayOneShot(clickSound);
+    //        }
+
+    //        Debug.Log(gameObject.name + " Pressed!");
+
+    //        // This is where you'll eventually trigger the "Win" logic
+    //    }
+    //}
+
     public void Interact()
     {
         if (!isPressed)
         {
             isPressed = true;
             meshRenderer.material.color = pressedColor;
+            if (clickSound != null) audioSource.PlayOneShot(clickSound);
 
-            if (clickSound != null)
-            {
-                audioSource.PlayOneShot(clickSound);
-            }
-
-            Debug.Log(gameObject.name + " Pressed!");
-
-            // This is where you'll eventually trigger the "Win" logic
+            // Tell the GameManager a task with this tag is done
+            GameManager.Instance.TaskCompletedServerRpc(gameObject.tag, NetworkManager.Singleton.LocalClientId);
         }
     }
 }
