@@ -29,28 +29,23 @@ public class PlayerController : NetworkBehaviour
     }
 
 
-    /*
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        //Debug.Log("Scene has started!");
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-    } */
-
-    // Update is called once per frame
     void Update()
     {
-
         if (!IsOwner)
         {
             return;
         }
 
-        //Debug.Log("Scene is updating!");
+        // --- LOCK CONTROLS UNTIL P2 JOINS ---
+        // If GameManager doesn't exist yet or game isn't active, stop here
+        if (GameManager.Instance == null || !GameManager.Instance.gameActive.Value)
+        {
+            // Keep the cursor locked so they don't click out of the window while waiting
+            Cursor.lockState = CursorLockMode.Locked;
+            return;
+        }
 
+        // Everything below only runs once gameActive is true
         Vector2 moveInput = Keyboard.current != null ? new Vector2
             (
                 (Keyboard.current.aKey.isPressed ? -1 : 0) + (Keyboard.current.dKey.isPressed ? 1 : 0),
@@ -71,24 +66,20 @@ public class PlayerController : NetworkBehaviour
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
 
-
-        // --- ADD THIS AT THE BOTTOM OF Update() ---
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
-            // Create a ray from the center of the viewport
             Ray ray = playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
             RaycastHit hit;
 
-            // Shoot the ray out 3 meters
             if (Physics.Raycast(ray, out hit, 3f))
             {
-                // Check if the object we hit has the TaskButton script
                 if (hit.collider.TryGetComponent(out TaskButton button))
                 {
-                    // Trigger the button logic
                     button.Interact();
                 }
             }
         }
     }
+
+
 }

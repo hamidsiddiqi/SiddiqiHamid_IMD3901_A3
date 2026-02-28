@@ -22,26 +22,17 @@ public class TaskButton : MonoBehaviour
         audioSource.spatialBlend = 1.0f;
     }
 
-    //public void Interact()
-    //{
-    //    if (!isPressed)
-    //    {
-    //        isPressed = true;
-    //        meshRenderer.material.color = pressedColor;
-
-    //        if (clickSound != null)
-    //        {
-    //            audioSource.PlayOneShot(clickSound);
-    //        }
-
-    //        Debug.Log(gameObject.name + " Pressed!");
-
-    //        // This is where you'll eventually trigger the "Win" logic
-    //    }
-    //}
 
     public void Interact()
     {
+
+        if (GameManager.Instance != null && !GameManager.Instance.gameActive.Value)
+        {
+            Debug.Log("Game hasn't started yet! Waiting for P2...");
+            return; // Stop the function here
+        }
+
+
         if (!isPressed)
         {
             isPressed = true;
