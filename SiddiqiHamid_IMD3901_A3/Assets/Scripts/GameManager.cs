@@ -83,6 +83,17 @@ public class GameManager : NetworkBehaviour
         }
     }
 
+    // Helper function to turn float seconds into MM:SS string
+    string FormatTime(float timeToDisplay)
+    {
+        if (timeToDisplay < 0) timeToDisplay = 0;
+
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+        return string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
 
     [ServerRpc(RequireOwnership = false)]
     public void TaskCompletedServerRpc(string buttonTag)
