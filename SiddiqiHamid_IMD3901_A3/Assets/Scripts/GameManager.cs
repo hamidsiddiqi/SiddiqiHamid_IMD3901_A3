@@ -68,19 +68,31 @@ public class GameManager : NetworkBehaviour
         }
 
         // 3. UI DISPLAY: Prioritize the Win Message over everything else
-        if (winStatusText.gameObject.activeSelf)
+        //if (winStatusText.gameObject.activeSelf)
+        //{
+        //    // Freeze the timer display so it doesn't flicker or change
+        //    timerText.text = "Time: " + Mathf.Ceil(timer.Value).ToString();
+        //}
+        //else if (gameActive.Value)
+        //{
+        //    timerText.text = "Time: " + Mathf.Ceil(timer.Value).ToString();
+        //}
+        //else
+        //{
+        //    timerText.text = "Waiting for P2 to join...";
+        //}
+
+
+
+        if (winStatusText.gameObject.activeSelf || gameActive.Value)
         {
-            // Freeze the timer display so it doesn't flicker or change
-            timerText.text = "Time: " + Mathf.Ceil(timer.Value).ToString();
-        }
-        else if (gameActive.Value)
-        {
-            timerText.text = "Time: " + Mathf.Ceil(timer.Value).ToString();
+            timerText.text = "Time: " + FormatTime(timer.Value);
         }
         else
         {
             timerText.text = "Waiting for P2 to join...";
         }
+
     }
 
     // Helper function to turn float seconds into MM:SS string
@@ -125,6 +137,8 @@ public class GameManager : NetworkBehaviour
 
         Debug.Log("Game Ended: " + message);
     }
+
+
 
 
 

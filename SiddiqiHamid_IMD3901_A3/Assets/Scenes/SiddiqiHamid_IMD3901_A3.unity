@@ -5011,7 +5011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
   timer:
-    m_InternalValue: 60
+    m_InternalValue: 600
   p1Remaining:
     m_InternalValue: 0
   p2Remaining:
