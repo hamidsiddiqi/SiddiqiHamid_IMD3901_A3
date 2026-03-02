@@ -5053,6 +5053,7 @@ GameObject:
   - component: {fileID: 1742299022}
   - component: {fileID: 1742299023}
   - component: {fileID: 1742299024}
+  - component: {fileID: 1742299025}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5125,6 +5126,22 @@ MonoBehaviour:
   p1Text: {fileID: 1000396934}
   p2Text: {fileID: 630149268}
   winStatusText: {fileID: 1749228480}
+--- !u!114 &1742299025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742299019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f5454742fc7f3040b9f672addac95b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  desktopPlayerPrefab: {fileID: 8373420547067197876, guid: e5de4f2b949fd3a4ea1fe14012e512b2, type: 3}
+  vrPlayerPrefab: {fileID: 4614704807204308425, guid: dcf5687dcdd67cc4990a8e828d9535bf, type: 3}
+  selectionCanvas: {fileID: 0}
 --- !u!1 &1749228479
 GameObject:
   m_ObjectHideFlags: 0
