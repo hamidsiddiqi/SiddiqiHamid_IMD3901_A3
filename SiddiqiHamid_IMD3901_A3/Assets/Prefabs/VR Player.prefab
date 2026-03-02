@@ -395,9 +395,11 @@ GameObject:
   - component: {fileID: 1883524922457459824}
   - component: {fileID: 3654708076177097626}
   - component: {fileID: 4076698556158968658}
+  - component: {fileID: 6319422491551155867}
   - component: {fileID: -8369551102307091783}
   - component: {fileID: 3700796713779448110}
   - component: {fileID: 632403395192376370}
+  - component: {fileID: -6691838540585622205}
   m_Layer: 0
   m_Name: VR Player
   m_TagString: Untagged
@@ -478,6 +480,33 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!54 &6319422491551155867
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4614704807204308425}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &-8369551102307091783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,6 +594,23 @@ MonoBehaviour:
   controller: {fileID: 4076698556158968658}
   cameraTransform: {fileID: 8232474229840875041}
   playerCamera: {fileID: 2050348226006472062}
+--- !u!114 &-6691838540585622205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4614704807204308425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  NetworkRigidbodyBaseExpanded: 0
+  UseRigidBodyForMotion: 0
+  AutoUpdateKinematicState: 1
+  AutoSetKinematicOnDespawn: 1
 --- !u!1 &6468484720536052175
 GameObject:
   m_ObjectHideFlags: 0
