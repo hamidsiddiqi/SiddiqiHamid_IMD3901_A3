@@ -392,6 +392,7 @@ GameObject:
   - component: {fileID: 3357284287921131490}
   - component: {fileID: -8601502153201972419}
   - component: {fileID: 1547070001676372190}
+  - component: {fileID: 7104247928625270176}
   m_Layer: 0
   m_Name: Desktop Player
   m_TagString: Untagged
@@ -624,3 +625,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
   nameTagText: {fileID: 1374683830930343706}
+--- !u!114 &7104247928625270176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8373420547067197876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  NetworkRigidbodyBaseExpanded: 0
+  UseRigidBodyForMotion: 0
+  AutoUpdateKinematicState: 1
+  AutoSetKinematicOnDespawn: 1
