@@ -1,7 +1,11 @@
 Overview of what I did:
 
-For this assignment, I created a Multiplayer game that two players have press all the buttons they have to press. Whoever presses all their buttons first
+For this assignment, I created a Multiplayer game that two players have to press all the red buttons they have to press. Whoever presses all their buttons first
 would win the game. Each player has 2 minutes to press all the buttons. If none of them press all their buttons in that time then its game over and nobody would win the game.
+For players, they would move around with WASD conrtols and to press the buttons, they would need to press right mouse click when they get close to the red button.
+I felt this would cool way for two players to play against eachother to see who can press all the buttons first before the timer ticks. I picked this design becuase I felt I didn't
+want to complicate things. I added buttons that allow the host and client to join. I also included on screen text that tell players how many buttons they and there opponent have left
+to press while also shoing how much time they have to press all the buttons. Along with that, I added text on top of the player that tells you which player is who. 
 
 
 
