@@ -11,12 +11,12 @@ public class PlayerNameTag : NetworkBehaviour
         // OwnerClientId 0 is always the Host (Player 1)
         if (OwnerClientId == 0)
         {
-            nameTagText.text = "Player 1 (Host)";
+            nameTagText.text = "P1 (Host)";
             nameTagText.color = Color.red; // Match your button theme!
         }
         else
         {
-            nameTagText.text = "Player 2 (Client)";
+            nameTagText.text = "P2 (Client)";
             nameTagText.color = Color.green; // Match your button theme!
         }
     }
