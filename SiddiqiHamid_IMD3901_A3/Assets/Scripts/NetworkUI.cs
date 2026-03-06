@@ -4,13 +4,13 @@ using UnityEngine.UI;
 
 public class NetworkUI : MonoBehaviour
 {
-    [SerializeField] private Button startHostButton;
-    [SerializeField] private Button startClientButton;
-    [SerializeField] private GameObject menuPanel; // The panel holding these buttons
+    [SerializeField] private Button startHostButton; // Start Host Button
+    [SerializeField] private Button startClientButton; // Start Client Button
+    [SerializeField] private GameObject menuPanel; // Menu Panel for Buttons
 
     private void Awake()
     {
-        // 1. Assign Button Listeners
+        // Assigning Listeners to host and client to hide panel when button is pressed
         startHostButton.onClick.AddListener(() => {
             NetworkManager.Singleton.StartHost();
             HideMenu();
@@ -24,7 +24,7 @@ public class NetworkUI : MonoBehaviour
 
     private void HideMenu()
     {
-        // Hide the buttons once a connection is started
+        // Hiding the buttons when a connection is started
         menuPanel.SetActive(false);
     }
 }

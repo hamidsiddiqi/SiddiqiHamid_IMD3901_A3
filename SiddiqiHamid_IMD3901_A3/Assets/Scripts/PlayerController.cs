@@ -36,22 +36,22 @@ public class PlayerController : NetworkBehaviour
             return;
         }
 
-        // --- LOCK CONTROLS UNTIL P2 JOINS ---
-        // If GameManager doesn't exist yet or game isn't active, stop here
+        // Locking Player controls until Player 2 or more than 1 player joins the game
         if (GameManager.Instance == null || !GameManager.Instance.gameActive.Value)
         {
-            // Keep the cursor locked so they don't click out of the window while waiting
+            // Keeping the cursor locked so they don't click out of the window while waiting
             Cursor.lockState = CursorLockMode.Locked;
             return;
         }
 
-        // Everything below only runs once gameActive is true
+        // Making sure WASD controls only run once gameActive is true
         Vector2 moveInput = Keyboard.current != null ? new Vector2
             (
                 (Keyboard.current.aKey.isPressed ? -1 : 0) + (Keyboard.current.dKey.isPressed ? 1 : 0),
                 (Keyboard.current.sKey.isPressed ? -1 : 0) + (Keyboard.current.wKey.isPressed ? 1 : 0)
             ) : Vector2.zero;
 
+        // Mouse Sensitvity, Speed (Sewy) Rotating around with mouse
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
         controller.Move(move * speed * Time.deltaTime);
 
@@ -66,6 +66,7 @@ public class PlayerController : NetworkBehaviour
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
 
+        // Checking to see if player pressed button with right click
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
             Ray ray = playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
@@ -73,6 +74,7 @@ public class PlayerController : NetworkBehaviour
 
             if (Physics.Raycast(ray, out hit, 3f))
             {
+                // Calling TaskButton script
                 if (hit.collider.TryGetComponent(out TaskButton button))
                 {
                     button.Interact();

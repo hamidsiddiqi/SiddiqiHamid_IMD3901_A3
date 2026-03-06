@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class TaskButton : MonoBehaviour
 {
-    public Color pressedColor = Color.green;
+    public Color pressedColor = Color.green; // Setting any pressed button already to green
     private MeshRenderer meshRenderer;
     private bool isPressed = false;
 
+    // Button Audio
     [Header("Audio Settings")]
     public AudioClip clickSound;
     private AudioSource audioSource;
@@ -25,14 +26,13 @@ public class TaskButton : MonoBehaviour
 
     public void Interact()
     {
-
+        // Checking to see if Player 2 joins
         if (GameManager.Instance != null && !GameManager.Instance.gameActive.Value)
         {
-            Debug.Log("Game hasn't started yet! Waiting for P2...");
             return; // Stop the function here
         }
 
-
+        // Playing button pressed audio when player presses red button
         if (!isPressed)
         {
             isPressed = true;
@@ -40,7 +40,6 @@ public class TaskButton : MonoBehaviour
             if (clickSound != null) audioSource.PlayOneShot(clickSound);
 
             // Tell the GameManager a task with this tag is done
-            //GameManager.Instance.TaskCompletedServerRpc(gameObject.tag, NetworkManager.Singleton.LocalClientId);\
             GameManager.Instance.TaskCompletedServerRpc(gameObject.tag);
         }
     }

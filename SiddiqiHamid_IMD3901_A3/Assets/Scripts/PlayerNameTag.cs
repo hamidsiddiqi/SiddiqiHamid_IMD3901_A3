@@ -4,26 +4,28 @@ using TMPro;
 
 public class PlayerNameTag : NetworkBehaviour
 {
-    public TextMeshProUGUI nameTagText;
+    // Text that goes above players's head to show which is host and which is client
+    public TextMeshProUGUI nameTagText; 
 
     public override void OnNetworkSpawn()
     {
-        // OwnerClientId 0 is always the Host (Player 1)
+        // For Host
         if (OwnerClientId == 0)
         {
             nameTagText.text = "P1 (Host)";
-            nameTagText.color = Color.red; // Match your button theme!
+            nameTagText.color = Color.red; 
         }
+        // For Client
         else
         {
             nameTagText.text = "P2 (Client)";
-            nameTagText.color = Color.green; // Match your button theme!
+            nameTagText.color = Color.green; 
         }
     }
 
     void Update()
     {
-        // Simple Billboard effect: Make the text face the local player's camera
+        // Making the text face the player's camera
         if (Camera.main != null)
         {
             transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,
